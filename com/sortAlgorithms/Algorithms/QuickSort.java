@@ -117,6 +117,11 @@ public class QuickSort {
         optimizedQuickSortForDuplicate(list, 0, list.length-1);
     }
 
+
+    /*When an element is the same as pivot move it to the right side, and when a pass of partition is finished,
+    * move it to around the pivot index, then in the next pass of quick sort you only need to sort the left and right except the duplicated part,
+    * it can obviously reduce the iterate time in an array full of duplicatied elements.*/
+
     public static void optimizedQuickSortForDuplicate(int[] list, int start, int end){
         if(start<end){
             if(end-start>MAX_LENGTH_INSERT_SORT){                   //In small array insertion sort is more efficient
