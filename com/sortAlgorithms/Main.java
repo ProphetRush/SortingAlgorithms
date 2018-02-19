@@ -12,8 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
 	    int[] test = {3,6,4,9,8,7,5,2};
-	    int[] test2 = {2,9,5,4,8,1,6,7};
-        QuickSort.simpleQuickSort(test2);
+	    int[] test2 = {4,9,5,4,2,4,8,1,6};
+        QuickSort.optimizedQuickSortForDuplicate(test2);
         Utils.printArray(test2);
     }
 }
