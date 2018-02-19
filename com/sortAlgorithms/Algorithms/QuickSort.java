@@ -123,7 +123,6 @@ public class QuickSort {
     * it can obviously reduce the iterate time in an array full of duplicatied elements.*/
 
     public static void optimizedQuickSortForDuplicate(int[] list, int start, int end){
-        if(start<end){
             if(end-start>MAX_LENGTH_INSERT_SORT){                   //In small array insertion sort is more efficient
                 choosePivot(list, start, end);
                 int pivot = list[start];
@@ -159,13 +158,9 @@ public class QuickSort {
                     list[i+end-right] = pivot;
                     right++;
                 }
-                simpleQuickSort(list, start, i-1);
-                simpleQuickSort(list, i+rightLen+1, end);
-            }else{
-                InsertionSort.insertionSort(list, start, end);
+                optimizedQuickSortForDuplicate(list, start, i-1);
+                optimizedQuickSortForDuplicate(list, i+rightLen+1, end);
             }
-
-        }
     }
 
 }

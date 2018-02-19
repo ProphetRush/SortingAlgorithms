@@ -7,6 +7,8 @@ public class Heap<E extends Comparable<E>>{
 
     private ArrayList<E> list = new ArrayList<>();
 
+    private int[] array;
+
 
     public Heap(E[] arr){
         for (int i = 0; i < arr.length; i++) {
@@ -15,9 +17,8 @@ public class Heap<E extends Comparable<E>>{
     }
 
     public Heap(int[] arr){
-        for (int i = 0; i < arr.length; i++) {
-            add((E)new Integer(arr[i]));
-        }
+        array = arr;
+        buildMaxHeap();
     }
 
     public void add(E obj){
@@ -64,9 +65,40 @@ public class Heap<E extends Comparable<E>>{
         return obj;
     }
 
-    public int size(){
-        return list.size();
+
+
+
+    private void adjustDownToUp(int k,int length){
+        int temp = array[k];
+        for(int i=2*k+1; i<length-1; i=2*i+1){
+            if(i<length && array[i]<array[i+1]){
+                i++;
+            }
+            if(temp>=array[i]){
+                break;
+            }else{
+                array[k] = array[i];
+                k = i;
+            }
+        }
+        array[k] = temp;
     }
 
+
+    public void heapSort(){
+        for(int i=array.length-1;i>1;i--){
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+            adjustDownToUp(0,i);
+        }
+    }
+
+
+    private void buildMaxHeap(){
+        for(int i=(array.length-2)/2;i>=0;i--){
+            adjustDownToUp(i,array.length);
+        }
+    }
 
 }
