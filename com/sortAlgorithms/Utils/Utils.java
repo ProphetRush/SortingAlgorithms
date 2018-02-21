@@ -1,5 +1,6 @@
 package com.sortAlgorithms.Utils;
 
+import java.io.*;
 import java.util.Random;
 
 public class Utils {
@@ -56,6 +57,21 @@ public class Utils {
             }
         }
         return array;
+    }
+
+    public static void createLargeRandomData(long length) throws IOException {
+        DataOutputStream output = new DataOutputStream(new BufferedOutputStream( new FileOutputStream("../LargeRandomData.dat")));
+        Random random = new Random();
+        for(long i=0; i<length; i++){
+            output.writeInt(random.nextInt(100000000));
+        }
+        output.close();
+        System.out.println("Create file success, the first 50 number is:");
+        DataInputStream input = new DataInputStream(new BufferedInputStream(new FileInputStream("../LargeRandomData.dat")));
+        for(int i=0; i<50; i++){
+            System.out.println(input.readInt()+"  ");
+        }
+        input.close();
     }
 
 }

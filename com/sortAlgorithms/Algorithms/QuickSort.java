@@ -160,6 +160,8 @@ public class QuickSort {
                 }
                 optimizedQuickSortForDuplicate(list, start, i-1);
                 optimizedQuickSortForDuplicate(list, i+rightLen+1, end);
+            }else {
+                InsertionSort.insertionSort(list, start, end);
             }
     }
 

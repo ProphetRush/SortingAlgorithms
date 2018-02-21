@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 public class Timer {
     public static <E extends Comparable<E>> void execute(Method method, Object[] args) throws InvocationTargetException, IllegalAccessException {
         long start = System.currentTimeMillis();
-        method.invoke(null, (Object) args);
+        method.invoke(null, args);
         long end = System.currentTimeMillis();
         System.out.println(method.getName() + "() time consumed: " + String.valueOf(end - start) + "ms\n");
     }
