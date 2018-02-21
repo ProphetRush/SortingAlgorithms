@@ -18,4 +18,11 @@ public class Timer {
         long end = System.currentTimeMillis();
         System.out.println(method.getName() + "() time consumed: " + String.valueOf(end - start) + "ms\n");
     }
+
+    public static void execute(Object obj, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException {
+        long start = System.currentTimeMillis();
+        method.invoke(obj, args);
+        long end = System.currentTimeMillis();
+        System.out.println(method.getName() + "() time consumed: " + String.valueOf(end - start) + "ms\n");
+    }
 }

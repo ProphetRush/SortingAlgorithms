@@ -10,7 +10,7 @@ public class MergeSort {
             }
     }
 
-    private static void merge(int[] list, int start, int mid, int end){
+    public static void merge(int[] list, int start, int mid, int end){
         int[] tmp = new int[end-start+1];
         int i=start;
         int j=mid+1;
@@ -39,7 +39,7 @@ public class MergeSort {
 
 
 
-//    //Only create one temp array.
+    //Only create one temp array.
 //    public static void mergeSort(int[] list, int[] temp, int start, int end){
 //        int mid = (start+end)>>>1;
 //        if(start<end){
